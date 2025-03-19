@@ -20,4 +20,7 @@ def get_result():
     return jsonify({"error": "No result found"}), 404
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    from os import environ
+    port = int(environ.get("PORT", 5000))  # Use Railway's port dynamically
+    app.run(host='0.0.0.0', port=port)
+
